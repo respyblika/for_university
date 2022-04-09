@@ -15,6 +15,11 @@ var FirstClass = {
 
     },
     set property({name, age}) {
-        arr.concat([this.property()]);
-    }
-}
+        for (var i = 0; i < this.children.length; i++) {
+            if (this.children[i].age === age || this.children[i].name === name)
+                var sec = this.children[i];
+        }
+        return sec
+    },
+};
+lg(FirstClass.property);
