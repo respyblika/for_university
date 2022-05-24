@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма регистрации</title>
+
+</head>
+<style>
+    .Task5_output p {
+        border-radius: 10px;
+        text-align: left;
+    }
+
+    .Task5_output {
+        background-color: sandybrown;
+        margin: auto;
+        border: midnightblue;
+        width: 300px;
+        text-align: center;
+        display: none;
+
+    }
+
+    .five_task {
+        text-align: center;
+        border-radius: 20px;
+    }
+</style>
+
+<body>
+<div class="five_task">
+    <h2>Анкета</h2>
+    <div class="five_field">
+        <p><input type="text" id="Name" value="Имя" onblur="if(this.value.length == 0) this.value = 'Имя'"
+                  onfocus="if(this.value == 'Имя') this.value = '' "/>
+            <input type="text" id="Family" value="Фамилия" onblur="if(this.value.length == 0) this.value = 'Фамилия'"
+                   onfocus="if(this.value == 'Фамилия') this.value = '' "/>
+            <input type="text" id="Group" value="Группа" onblur="if(this.value.length == 0) this.value = 'Группа'"
+                   onfocus="if(this.value == 'Группа') this.value = '' "/></p>
+
+    </div>
+    <br/>
+    <button id="button_five">Начать</button>
+
+    <div class="Task5_output" id="Task5_output_id">
+        <p>
+            <label id="Name_quest">
+                <output type="text" id="Name_res"></output>
+            </label>
+        </p>
+        <p>
+            <label id="Family_quest">
+                <output type="text" id="Family_res"></output>
+            </label>
+        </p>
+        <p>
+            <label id="Group_quest">
+                <output type="text" id="Group_res"></output>
+            </label>
+        </p>
+        <p>
+            <label id="quest1">
+                <output type="text" id="quest1_text"></output>
+                <br/>
+                <output type="text" id="quest1_result"></output>
+            </label>
+        </p>
+        <p>
+            <label id="quest2">
+                <output type="text" id="quest2_text"></output>
+                <br/>
+                <output type="text" id="quest2_result"></output>
+            </label>
+        </p>
+        <p>
+            <label id="quest3">
+                <output type="text" id="quest3_text"></output>
+                <br/>
+                <output type="text" id="quest3_result"></output>
+            </label>
+        </p>
+        <p>
+            <label id="quest4">
+                <output type="text" id="quest4_text"></output>
+                <br/>
+                <output type="text" id="quest4_result"></output>
+            </label>
+        </p>
+        <p>
+            <label id="quest5">
+                <output type="text" id="quest5_text"></output>
+                <br/>
+                <output type="text" id="quest5_result"></output>
+            </label>
+        </p>
+    </div>
+
+</div>
+<script>
+    const button_five = document.getElementById("button_five");
+
+    button_five.addEventListener("click", () => {
+        alert("Начнем тестирование!")
+        const Name_five = document.getElementById("Name")
+        const Family_five = document.getElementById("Family")
+        const Group_five = document.getElementById("Group")
+
+        const quest_one = prompt("Вопрос 1:Сколько вам лет");
+        const quest_two = prompt("Вопрос 2:Какой любимый жанр фильмов?")
+        const quest_three = prompt("Вопрос 3:Любимый фильм?")
+        const quest_four = prompt("Вопрос 4:Любимый актер")
+        const quest_five = prompt("Вопрос 5:Фильм в котором хотели бы сняться")
+        alert("Спасибо что прошли наш опрос!")
+
+        document.getElementById("Name_res").innerHTML = "Имя: " + Name_five.value
+        document.getElementById("Family_res").innerHTML = "Фамилия: " + Family_five.value
+        document.getElementById("Group_res").innerHTML = "Группа: " + Group_five.value
+
+        document.getElementById("quest1_text").innerText = "Вопрос 1:Напишите ваш пол"
+        document.getElementById("quest1_result").innerHTML = "Ответ: " + quest_one
+
+        document.getElementById("quest2_text").innerText = "Вопрос 2:В какой стране находитесь?"
+        document.getElementById("quest2_result").innerHTML = "Ответ: " + quest_two
+
+        document.getElementById("quest3_text").innerText = "Вопрос 3:Вы выспались сегодня?"
+        document.getElementById("quest3_result").innerHTML = "Ответ: " + quest_three
+
+        document.getElementById("quest4_text").innerText = "Вопрос 4:Сколько вам лет?"
+        document.getElementById("quest4_result").innerHTML = "Ответ: " + quest_four
+
+        document.getElementById("quest5_text").innerText = "Вопрос 5:Вам нравится JavaScript?"
+        document.getElementById("quest5_result").innerHTML = "Ответ: " + quest_five
+
+        document.getElementById("Task5_output_id").style.display = "block"
+
+
+    })
+</script>
+</body>
+</html>

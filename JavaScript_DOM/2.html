@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма регистрации</title>
+</head>
+<style>
+    .task {
+        border-radius: 20px;
+        text-align: center;
+    }
+
+    .task textarea {
+        width: 400px;
+        height: 100px;
+    }
+
+    .change_text button {
+        background-color: blueviolet;
+        color: white;
+        border-radius: 10px;
+    }
+</style>
+<body>
+
+<div class="task">
+
+    <b>Введите предложение:</b>
+    <p><textarea></textarea></p>
+
+    <div class="change_text" id="change_text">
+        <button>Сделать первую букву заглавной</button>
+        <button>Убрать лишние пробелы</button>
+        <p>
+            <button>Поставить точку</button>
+            <button>Поставить многоточие</button>
+        </p>
+    </div>
+</div>
+<script>
+    const task_button = document.getElementById("change_text");
+    for (let button_change of task_button.getElementsByTagName("button")) {
+
+        button_change.addEventListener("click", () => {
+            const text = document.getElementsByTagName("textarea")[0].value;
+            if (button_change.textContent === "Сделать первую букву заглавной") {
+                document.getElementsByTagName("textarea")[0].value = text.toUpperCase()[0] + text.slice(1, text.length);
+            }
+            if (button_change.textContent === "Убрать лишние пробелы") {
+                document.getElementsByTagName("textarea")[0].value = text.replace(/\s+/g, ' ').trim();
+            }
+            if (button_change.textContent === "Поставить точку") {
+                document.getElementsByTagName("textarea")[0].value = text.concat(".")
+            }
+            if (button_change.textContent === "Поставить многоточие") {
+                if (text.length > 100) {
+                    document.getElementsByTagName("textarea")[0].value = text.slice(0, 99).concat("...");
+                } else {
+                    alert("В предложении меньше 100 символов!!");
+                }
+            }
+        })
+    }
+
+</script>
+
+
+</body>
+</html>
