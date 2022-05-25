@@ -49,8 +49,12 @@
             if (button_change.textContent === "Убрать лишние пробелы") {
                 document.getElementsByTagName("textarea")[0].value = text.replace(/\s+/g, ' ').trim();
             }
-            if (button_change.textContent === "Поставить точку") {
-                document.getElementsByTagName("textarea")[0].value = text.concat(".")
+           if (button_change.textContent === "Поставить точку") {
+                let area = document.getElementsByTagName("textarea")[0].value
+                if (area[area.length - 1] !== "."  && area[area.length - 1] !== "!"
+                    && area[area.length - 1] !== "?" && area[area.length - 1] !== ",")
+                    document.getElementsByTagName("textarea")[0].value = text.concat(".")
+
             }
             if (button_change.textContent === "Поставить многоточие") {
                 if (text.length > 100) {
